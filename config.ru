@@ -5,3 +5,5 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 run ApplicationController
+use RavesController
+use UsersController
