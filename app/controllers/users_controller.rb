@@ -68,7 +68,12 @@ class UsersController < ApplicationController
       redirect "/users/homepage"
     end
 
-    delete '/users/:id/delete' do #delete action
+    get '/users/:id/delete' do
+      @user = User.find(session[:user_id])
+      erb :"users/delete"
+    end
+
+    delete '/users/:id' do #delete action
       @user = User.find(session[:user_id])
       @user.delete
       redirect '/'
