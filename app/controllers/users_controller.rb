@@ -55,17 +55,23 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id/edit' do  #load edit form
-      @user = User.find_by_id(params[:id])
-      erb :edit
+      @user = User.find(session[:user_id])
+      erb :"users/edit"
     end
 
-    patch '/users/:id' do #edit action
-      @user = User.find_by_id(params[:id])
+    patch "/users/:id" do #edit action
+      @user = User.find(session[:user_id])
       @user.name = params[:name]
       @user.email = params[:email]
       @user.password = params[:password]
       @user.save
-      redirect to "/users/#{@user.id}"
+      redirect "/users/homepage"
+    end
+
+    delete '/users/:id/delete' do #delete action
+      @user = User.find(session[:user_id])
+      @user.delete
+      redirect '/'
     end
 
 
