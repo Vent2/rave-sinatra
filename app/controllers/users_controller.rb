@@ -32,35 +32,51 @@ class UsersController < ApplicationController
 			session[:user_id] = user.id
 			redirect '/users/homepage'
 		else
-			redirect '/failure'
+			redirect '/users/failure'
     end
   end
 
     get "/users/homepage" do
+      if logged_in?
       @user = User.find(session[:user_id])
         erb :"users/homepage"
+      else
+        redirect '/users/login'
+      end
     end
   
     get "/users/failure" do
       erb :"users/failure"
-    end
-  
-    get "/logout" do
-      session.clear
-      redirect "/"
     end
 
     get '/sessions/logout' do
       session.clear
       redirect '/'
     end
-#   # PATCH: /users/5
-#   patch "/users/:id" do
-#     redirect "/users/:id"
-#   end
 
-#   # DELETE: /users/5/delete
-#   delete "/users/:id/delete" do
-#     redirect "/users"
-#   end
+    get '/users/:id/edit' do  #load edit form
+      @user = User.find_by_id(params[:id])
+      erb :edit
+    end
+
+    patch '/users/:id' do #edit action
+      @user = User.find_by_id(params[:id])
+      @user.name = params[:name]
+      @user.email = params[:email]
+      @user.password = params[:password]
+      @user.save
+      redirect to "/users/#{@user.id}"
+    end
+
+
+    #Helper
+    helpers do
+      def logged_in?
+        !!session[:user_id]
+      end
+  
+      def current_user
+        User.find(session[:user_id])
+      end
+    end
 end
