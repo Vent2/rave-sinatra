@@ -20,19 +20,14 @@ class RavesController < ApplicationController
           hotel_cost: params[:hotel_cost],
           total: params[:total]
           )
-          binding.pry
           redirect "/raves/#{@raves.id}"
     end
 
-#   @owner = Owner.create(params[:owner])
-#   if !params["pet"]["name"].empty?
-#     @owner.pets << Pet.create(name: params["pet"]["name"])
-#   end
-#   redirect "owners/#{@owner.id}"
-# end
+
 
   # GET: /raves/5
   get "/raves/:id" do
+    @raves = Rave.find_by_id(params[:id])
     erb :"/raves/show.html"
   end
 
