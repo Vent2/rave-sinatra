@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
   
-  configure do
-		set :views, "app/views"
-		enable :sessions
-		set :session_secret, "password_security"
-	end
 
   # GET: Sign up
   get "/users/signup" do

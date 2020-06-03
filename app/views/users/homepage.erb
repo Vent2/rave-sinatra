@@ -18,4 +18,8 @@
     <br>
   <body>
     <a href="/raves/create">Add a Rave</a>
+    <% @rave.each do |r|%>
+    <%= r.name %>
+    <%end%>
+  </body>
 </html>

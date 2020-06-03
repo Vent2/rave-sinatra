@@ -11,9 +11,25 @@ class RavesController < ApplicationController
   end
 
   # POST: /raves
-  post "/raves" do
-    redirect "/raves"
-  end
+    post '/raves' do #processes post form
+      @raves = Rave.create(
+          user_id: session[:user_id],
+          name: params[:name], 
+          travel_cost: params[:travel_cost], 
+          food_cost: params[:food_cost],
+          hotel_cost: params[:hotel_cost],
+          total: params[:total]
+          )
+          binding.pry
+          redirect "/raves/#{@raves.id}"
+    end
+
+#   @owner = Owner.create(params[:owner])
+#   if !params["pet"]["name"].empty?
+#     @owner.pets << Pet.create(name: params["pet"]["name"])
+#   end
+#   redirect "owners/#{@owner.id}"
+# end
 
   # GET: /raves/5
   get "/raves/:id" do
