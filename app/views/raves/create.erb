@@ -1,0 +1,15 @@
+<h1>Add a Rave</h1>
+<form action="/raves" method="POST">
+<label for="name">Name:</label>
+	<input type="text" name="name"><br>
+<label for="raves[travelcost]">Travel Cost:</label>
+    <input type="text" name="raves[travelcost]"><br>
+<label for="raves[foodcost]">Food Cost:</label>
+	<input type="integer" name="raves[foodcost"><br>
+<label for="raves[hotelcost]">Hotel Cost:</label>
+	<input type="integer" name="raves[hotelcost]"><br>
+<%# <label for="raves[totalcost]">Total Cost:</label>
+	<input type="integer" name="raves[totalcost]"><br> %>
+	<input type="submit" value="Add Rave">
+  <a href="/users/homepage">Go Back</a>
+</form>

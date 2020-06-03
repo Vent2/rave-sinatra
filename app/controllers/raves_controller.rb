@@ -6,8 +6,8 @@ class RavesController < ApplicationController
   end
 
   # GET: /raves/new
-  get "/raves/new" do
-    erb :"/raves/new.html"
+  get "/raves/create" do
+    erb :"/raves/create"
   end
 
   # POST: /raves
