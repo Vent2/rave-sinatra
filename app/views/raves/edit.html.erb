@@ -1,1 +1,13 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Fix your Rave</h1>
+<form action="/raves/<%= @rave.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+<label for="name">Name:</label>
+	<input type="text" name="name"><br>
+<label for="travel_cost">Travel Cost:</label>
+    <input type="number" min="0.00" max="10000.00" step="0.01" name="travel_cost"/><br>
+<label for="food_cost">Food Cost:</label>
+	<input type="number" min="0.00" max="10000.00" step="0.01" name="food_cost"/><br>
+<label for="hotel_cost">Hotel Cost:</label>
+	<input type="number" min="0.00" max="10000.00" step="0.01" name="hotel_cost"/><br>
+    <input type="submit" value="Edit">
+</form>

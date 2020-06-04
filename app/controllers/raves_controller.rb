@@ -27,17 +27,25 @@ class RavesController < ApplicationController
 
   # GET: /raves/5
   get "/raves/:id" do
-    @raves = Rave.find_by_id(params[:id])
+    @raves = Rave.find_by(params[:user_id])
+    binding.pry
     erb :"/raves/show.html"
   end
 
   # GET: /raves/5/edit
   get "/raves/:id/edit" do
+    @rave = Rave.find_by(params[:user_id])
     erb :"/raves/edit.html"
   end
 
   # PATCH: /raves/5
   patch "/raves/:id" do
+    @rave = Rave.find_by(params[:user_id])
+    @rave.name = params[:name]
+    @rave.travel_cost = params[:travel_cost]
+    @rave.food_cost = params[:food_cost]
+    @rave.hotel_cost = params[:hotel_cost]
+    @rave.save
     redirect "/raves/:id"
   end
 
