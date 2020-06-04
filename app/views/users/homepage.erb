@@ -20,11 +20,10 @@
     <a href="/raves/create">Add a Rave</a>
 
     <ul><h1>Raves!</h1>
-    <% total = 0 %>
     <% @rave.each do |r| %>
-    <li><a href="/raves/<%= r.id %>"><%= r.name %></a><br>Total:
-    <% total += "#{r.travel_cost}".to_i + "#{r.food_cost}".to_i + "#{r.hotel_cost}".to_i %>
-    <%= total %></li>
+    <li><a href="/raves/<%= r.id %>"><%= r[:name] %></a><br>Total:
+    <%= r[:total] %></li>
+    <%# <%=binding.pry%> 
     <%end%></ul>
   </body>
 </html>

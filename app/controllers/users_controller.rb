@@ -35,6 +35,7 @@ class UsersController < ApplicationController
       if logged_in?
       @user = User.find(session[:user_id])
       @rave = Rave.all
+      # binding.pry
         erb :"users/homepage"
       else
         redirect '/users/login'

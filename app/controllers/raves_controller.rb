@@ -18,8 +18,9 @@ class RavesController < ApplicationController
           travel_cost: params[:travel_cost], 
           food_cost: params[:food_cost],
           hotel_cost: params[:hotel_cost],
-          total: params[:total]
+          total: params[:total] =  params[:travel_cost].to_i + params[:food_cost].to_i + params[:hotel_cost].to_i
           )
+          # binding.pry
           redirect "/raves/#{@raves.id}"
     end
 
