@@ -28,7 +28,6 @@ class RavesController < ApplicationController
   # GET: /raves/5
   get "/raves/:id" do
     @raves = Rave.find_by(params[:user_id])
-    binding.pry
     erb :"/raves/show.html"
   end
 
