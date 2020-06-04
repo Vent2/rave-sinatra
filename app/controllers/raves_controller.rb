@@ -27,19 +27,20 @@ class RavesController < ApplicationController
 
   # GET: /raves/5
   get "/raves/:id" do
-    @raves = Rave.find_by(params[:user_id])
+    @raves = Rave.find(params[:id])
+    # binding.pry
     erb :"/raves/show.html"
   end
 
   # GET: /raves/5/edit
   get "/raves/:id/edit" do
-    @rave = Rave.find_by(params[:user_id])
+    @rave = Rave.find(params[:id])
     erb :"/raves/edit.html"
   end
 
   # PATCH: /raves/5
   patch "/raves/:id" do
-    @rave = Rave.find_by(params[:user_id])
+    @rave = Rave.find(params[:id])
     @rave.name = params[:name]
     @rave.travel_cost = params[:travel_cost]
     @rave.food_cost = params[:food_cost]
@@ -49,12 +50,13 @@ class RavesController < ApplicationController
   end
 
   get '/raves/:id/delete' do
-    @rave = Rave.find_by(params[:user_id])
+    # binding.pry
+    @rave =  Rave.find(params[:id])
     erb :"/raves/delete"
   end
   # DELETE: /raves/5/delete
   delete "/raves/:id" do
-    @rave = Rave.find_by(params[:user_id])
+    @rave =  Rave.find(params[:id])
     @rave.delete
     redirect "/users/homepage"
   end

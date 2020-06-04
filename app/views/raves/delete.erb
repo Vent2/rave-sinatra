@@ -1,5 +1,5 @@
 <h1>Bye Bye Rave<h1>
-<form action="/raves/<%= @rave.id %>" method="post">
+<form action="/raves/<%= @rave[:id] %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
 </form>
