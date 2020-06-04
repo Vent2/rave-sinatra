@@ -22,7 +22,7 @@
     <ul><h1>Raves!</h1>
     <% total = 0 %>
     <% @rave.each do |r| %>
-    <li><a href="/raves/:id"><%= r.name %></a><br>Total:
+    <li><a href="/raves/<%= r.id %>"><%= r.name %></a><br>Total:
     <% total += "#{r.travel_cost}".to_i + "#{r.food_cost}".to_i + "#{r.hotel_cost}".to_i %>
     <%= total %></li>
     <%end%></ul>

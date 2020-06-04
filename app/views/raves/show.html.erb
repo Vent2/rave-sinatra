@@ -1,9 +1,11 @@
 <h1> <%= @raves.name %> </h1>
 <body>
-<% total = @raves.travel_cost + @raves.food_cost + @raves.hotel_cost %>
+<% total = 0%>
+<% total += "#{@raves.travel_cost}".to_i + "#{@raves.food_cost}".to_i + "#{@raves.hotel_cost}".to_i %>
 Travel Cost:<%= @raves.travel_cost %><br>
 Food Cost:<%= @raves.food_cost %><br>
 Hotel Cost:<%= @raves.hotel_cost %><br>
 Total:<%= total %>
 <a href="/users/homepage">Homepage</a>
 <a href="/raves/:id/edit">Edit</a>
+<a href="/raves/:id/delete">Delete</a>

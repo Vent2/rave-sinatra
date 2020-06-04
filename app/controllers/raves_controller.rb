@@ -48,8 +48,14 @@ class RavesController < ApplicationController
     redirect "/raves/:id"
   end
 
+  get '/raves/:id/delete' do
+    @rave = Rave.find_by(params[:user_id])
+    erb :"/raves/delete"
+  end
   # DELETE: /raves/5/delete
-  delete "/raves/:id/delete" do
-    redirect "/raves"
+  delete "/raves/:id" do
+    @rave = Rave.find_by(params[:user_id])
+    @rave.delete
+    redirect "/users/homepage"
   end
 end
