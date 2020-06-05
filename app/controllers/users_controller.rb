@@ -1,3 +1,5 @@
+require 'pry'
+
 class UsersController < ApplicationController
   
 
@@ -13,7 +15,6 @@ class UsersController < ApplicationController
     else
       @user = User.create(params)
       session[:user_id] = @user.id
-
       redirect '/users/homepage'
     end 
   end
@@ -24,8 +25,10 @@ class UsersController < ApplicationController
   
   post "/users/login" do
 		user = User.find_by(email: params[:email])
-		if user && user.authenticate(params[:password])
-			session[:user_id] = user.id
+    if user && user.authenticate(params[:password])
+      
+      session[:user_id] = user.id
+
 			redirect '/users/homepage'
 		else
 			redirect '/users/failure'
@@ -35,7 +38,7 @@ class UsersController < ApplicationController
     get "/users/homepage" do
       if logged_in?
       @user = User.find(session[:user_id])
-      @rave = Rave.all
+      @rave =  Rave.all.select{|rave| rave.user_id == @user.id}
         erb :"users/homepage"
       else
         redirect '/users/login'
@@ -74,7 +77,6 @@ class UsersController < ApplicationController
     delete '/users/:id' do #delete action
       @user = User.find(session[:user_id])
       session.clear
-      @user.delete
       redirect '/'
     end
 
