@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(params)
       session[:user_id] = @user.id
+
       redirect '/users/homepage'
     end 
   end
@@ -47,6 +48,7 @@ class UsersController < ApplicationController
 
     get '/sessions/logout' do
       session.clear
+      # binding.pry
       redirect '/'
     end
 
@@ -71,6 +73,7 @@ class UsersController < ApplicationController
 
     delete '/users/:id' do #delete action
       @user = User.find(session[:user_id])
+      session.clear
       @user.delete
       redirect '/'
     end

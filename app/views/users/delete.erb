@@ -1,5 +1,38 @@
-<h1>Are you sure you want to delete everything?<h1>
-<form action="/users/<%= @user.id %>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
-</form>
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+        <title>RaveSinatra</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <img src="/images/goodbye.jpg" height="300" width="900" alt="Responsive image">
+        <link rel="stylesheet" href="/stylesheets/signup.css" />
+
+
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">RaveSinatra</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/users/homepage">Go Back <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/sessions/logout">Logout<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    </head>
+    <h1>Are you sure you want to delete everything?<h1>
+    <form action="/users/<%= @user.id %>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <button type="button" class="btn btn-outline-danger"><input type="submit" value="Delete"></button>
+
+    </form>
+</html>

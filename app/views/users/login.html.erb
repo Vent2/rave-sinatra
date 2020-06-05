@@ -6,8 +6,26 @@
     <title>RaveSinatra</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <img src="/images/dancingcat.gif" height="300" width="900" alt="Responsive image">
+     <img src="/images/x.jpg" height="300" width="900" alt="Responsive image">
     <link rel="stylesheet" href="/stylesheets/signup.css" />
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">RaveSinatra</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/users/signup">Sign Up<span class="sr-only">(current)</span></a>
+          </li>  
+          <li class="nav-item active">
+          <a class="nav-link" href="/">Go Back<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
  </head>
  <div>
   <h1>Hey Welcome Back!</h1>
@@ -16,9 +34,7 @@
         <input type="text" name="email"><br>
         <label for="password">Password:</label>
         <input type="password" name="password"><br>
-        <input type="submit" value="Log In">
-          <div class="top-left"><button type="button" class="btn btn-light btn-sm"><a href="/">Go Back</a></button></div><br>
-
+        <button type="button" class="btn btn-outline-light"><input type="submit" value="Log In"><br></button>
     </form>
 </div>
 </html>

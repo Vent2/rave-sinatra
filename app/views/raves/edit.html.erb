@@ -1,3 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+    <title>RaveSinatra</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <img src="/images/hammock.jpg" height="300" width="900" alt="Responsive image">
+    <link rel="stylesheet" href="/stylesheets/signup.css" />
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">RaveSinatra</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/users/homepage">Homepage <span class="sr-only">(current)</span></a>
+        </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/raves/<%= @rave.id %>">Go Back<span class="sr-only">(current)</span></a>
+          </li>  
+          <li class="nav-item active">
+          <a class="nav-link" href="/sessions/logout">Logout<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ </head>
+ <div>   
 <h1>Fix your Rave</h1>
 <form action="/raves/<%= @rave.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
@@ -9,5 +43,7 @@
 	<input type="number" min="0.00" max="10000.00" step="0.01" name="food_cost"/><br>
 <label for="hotel_cost">Hotel Cost:</label>
 	<input type="number" min="0.00" max="10000.00" step="0.01" name="hotel_cost"/><br>
-    <input type="submit" value="Edit">
-</form>
+   <button type="button" class="btn btn-outline-light"> <input type="submit" value="Edit"></button>
+      <%# <div class="top-left"><button type="button" class="btn btn-outline-light btn-sm"><a href="/raves/<%= @rave.id %>   <%#%">Go Back</a></button></div><br> %>
+  </form>
+</html>
