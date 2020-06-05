@@ -2,28 +2,25 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>RaveSinatra</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    <h1>Welcome, <%=@user.name%>!</h1>    
-
+    <h1>Welcome, <%=@user.name%>!</h1>  
+    <body>
+      <ul><h2>Here are your Raves!</h2>
+        <% @rave.each do |r| %>
+        <li><a href="/raves/<%= r[:id] %>"><%= r[:name] %></a><br>Total:
+        <%= r[:total] %></li>
+        <%# <%=binding.pry%> 
+        <%end%></ul>
+    </body>  
   </body>
   <br>
   <body id="page-bottom">
-    <label for="Log Out"><a href="/sessions/logout">Log Out</a></label>
+    <a href="/raves/create">Add Rave</a>
     <a href="/users/:id/edit">Edit</a>
+    <a href="/sessions/logout">Log Out</a></label>
     <a href="/users/:id/delete">Delete Account</a>
-  </body>
-    <br>
-  <body>
-    <a href="/raves/create">Add a Rave</a>
-
-    <ul><h1>Raves!</h1>
-    <% @rave.each do |r| %>
-    <li><a href="/raves/<%= r.id %>"><%= r[:name] %></a><br>Total:
-    <%= r[:total] %></li>
-    <%# <%=binding.pry%> 
-    <%end%></ul>
   </body>
 </html>
