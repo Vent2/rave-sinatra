@@ -1,1 +1,2 @@
 
+To who ever is reading this thank you for checking out this project. So Rave-Sinatra, is a way for you to keep track of you rave expenses. At the moment a individual user may create and account and log in. From there you are able to create as many raves as you like with travel,food, hotel cost and the total. The total will be visible from the user homepage. If you like a breakdown of the cost you can click the rave name to go to its show page. Happy Coding.

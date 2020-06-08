@@ -1,3 +1,5 @@
+require 'pry'
+
 class RavesController < ApplicationController
 
   # GET: /raves
@@ -29,7 +31,6 @@ class RavesController < ApplicationController
   # GET: /raves/5
   get "/raves/:id" do
     @raves = Rave.find(params[:id])
-    # binding.pry
     erb :"/raves/show.html"
   end
 
@@ -47,11 +48,10 @@ class RavesController < ApplicationController
     @rave.food_cost = params[:food_cost]
     @rave.hotel_cost = params[:hotel_cost]
     @rave.save
-    redirect "/raves/:id"
+    redirect "/raves/#{@rave.id}"
   end
 
   get '/raves/:id/delete' do
-    # binding.pry
     @rave =  Rave.find(params[:id])
     erb :"/raves/delete"
   end

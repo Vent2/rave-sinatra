@@ -44,10 +44,7 @@
     Travel Cost:<%= @raves[:travel_cost] %><br>
     Food Cost:<%= @raves[:food_cost] %><br>
     Hotel Cost:<%= @raves[:hotel_cost] %><br>
-    <%# <% @raves[:total] = @raves[:travel_cost] + @raves[:food_cost] + @raves[:hotel_cost] %> 
+    <% @raves[:total] = @raves[:travel_cost] + @raves[:food_cost] + @raves[:hotel_cost] %>
     Total:<%= @raves[:total] %>
-        <%# <button type="button" class="btn btn-outline-light"><a href="/users/homepage">Homepage</a></button> %>
-        <%# <button type="button" class="btn btn-outline-light"><a href="/raves/<%= @raves[:id] %>      <%#/edit">Edit</a></button> %>
-        <%# <button type="button" class="btn btn-outline-light"><a href="/raves/<%= @raves[:id]/delete">Delete</a></button>     %>
     </div>
 </html>
